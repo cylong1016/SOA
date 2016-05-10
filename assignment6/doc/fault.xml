@@ -1,0 +1,13 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+	<SOAP-ENV:Header/>
+	<SOAP-ENV:Body>
+		<env:Fault xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+			<env:Code>
+				<env:Value>学号</env:Value>
+			</env:Code>
+			<env:Reason>
+				<env:Text>学号不存在</env:Text>
+			</env:Reason>
+		</env:Fault>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

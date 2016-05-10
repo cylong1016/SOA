@@ -1,0 +1,17 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+	<SOAP-ENV:Header/>
+	<SOAP-ENV:Body>
+		<ResponseMsg>修改 131250181 的成绩成功!</ResponseMsg>
+		<学生>
+			<姓名>陈云龙</姓名>
+			<学号>131250181</学号>
+		</学生>
+		<课程>
+			<课程编号>000001</课程编号>
+			<课程讲师>xxx</课程讲师>
+			<平时成绩>77</平时成绩>
+			<期末成绩>58</期末成绩>
+			<总评成绩>92</总评成绩>
+		</课程>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
