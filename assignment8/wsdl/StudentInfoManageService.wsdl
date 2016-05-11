@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<description 
+    xmlns="http://www.w3.org/ns/wsdl"
+    targetNamespace= "http://jw.nju.edu.cn/wsdl" 
+    xmlns:ttns= "http://jw.nju.edu.cn/wsdl"
+    xmlns:wsoap= "http://www.w3.org/ns/wsdl/soap"
+    xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+  >
+
+  <documentation>
+    This document describes the StudentIndoManage Web service.
+  </documentation>
+
+  <types>
+    <xs:schema 
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://jw.nju.edu.cn/wsdl"
+        xmlns:infoxs="http://jw.nju.edu.cn/wsdl">
+
+      <xs:import namespace="http://jw.nju.edu.cn/schema" schemaLocation="Student.xsd"></xs:import>
+      <xs:import namespace="http://jw.nju.edu.cn/schema" schemaLocation="Error.xsd"></xs:import>
+      <xs:import namespace="http://jw.nju.edu.cn/schema" schemaLocation="Success.xsd"></xs:import>
+
+
+      <xs:element name="学生姓名" type="string"/>
+      <xs:element name="学生学号" type="tns:学号类型"/>
+         
+      <xs:complexType name="更新电话">     
+        <xs:sequence>      
+          <xs:element  name="学生学号" type="tns:学号类型"/>      
+          <xs:element  name="新的电话" type="tns:电话类型"/>         
+        </xs:sequence>     
+      </xs:complexType>      
+
+    </xs:schema>    
+  </types>
+  
+  <interface  name = "studentInfoManageInterface" >
+
+    <fault name = "invalidDataFault"
+            element = "infoxs:错误信息"/> 
+ 
+    <operation name="getInfoByName" 
+            pattern="http://www.w3.org/ns/wsdl/in-out" 
+            style="http://www.w3.org/ns/wsdl/style/iri"
+            wsdlx:safe = "true">
+        <input messageLabel="In" 
+              element="infoxs:学生姓名" />
+        <output messageLabel="Out" 
+              element="infoxs:学生信息" />
+        <outfault ref="ttns:invalidDataFault" messageLabel="Out"/>
+    </operation>
+
+    <operation name="getInfoById" 
+            pattern="http://www.w3.org/ns/wsdl/in-out" 
+            style="http://www.w3.org/ns/wsdl/style/iri"
+            wsdlx:safe = "true">
+        <input messageLabel="In" 
+              element="infoxs:学生学号" />
+        <output messageLabel="Out" 
+              element="infoxs:学生信息" />
+        <outfault ref="ttns:invalidDataFault" messageLabel="Out"/>
+    </operation>
+
+    <operation name="changeTel" 
+            pattern="http://www.w3.org/ns/wsdl/in-out" 
+            style="http://www.w3.org/ns/wsdl/style/iri"
+            wsdlx:safe = "true">
+        <input messageLabel="In" 
+              element="infoxs:更新电话" />
+        <output messageLabel="Out" 
+              element="infoxs:学生信息" />
+        <outfault ref="ttns:invalidDataFault" messageLabel="Out"/>
+    </operation>
+
+  </interface>
+
+  <binding name="studentInfoManageSOAPBinding" 
+          interface="ttns:studentInfoManageInterface"
+          type="http://www.w3.org/ns/wsdl/soap"
+          wsoap:protocol="http://www.w3.org/2003/05/soap/bindings/HTTP/">
+ 
+    <fault ref="ttns:invalidDataFault" 
+      wsoap:code="soap:Sender"/>
+
+    <operation ref="ttns:getInfoByName" 
+      wsoap:mep="http://www.w3.org/2003/05/soap/mep/soap-response"/>
+    <operation ref="ttns:getInfoById" 
+      wsoap:mep="http://www.w3.org/2003/05/soap/mep/soap-response"/>
+    <operation ref="ttns:changeTel" 
+      wsoap:mep="http://www.w3.org/2003/05/soap/mep/request-response"/>
+
+  </binding>
+
+  <service name="studentInfoManageService" 
+       interface="ttns:studentInfoManageInterface">
+
+     <endpoint name="studentInfoManageEndpoint" 
+               binding="ttns:studentInfoManageSOAPBinding"
+               address ="http://localhost:8080/studentInfoManage"/>
+        
+  </service>
+</description>
