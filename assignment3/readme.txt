@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-domtest为生成xml的java项目
-运行test.java
-输入的xml文件（student1.xml）位于domtest项目根文件夹
-=======
-domtest为生成xml的java项目
-运行test.java
->>>>>>> origin/master
-生成的xml文件（test.xml）位于domtest项目根文件夹
+锘縟omtest涓虹敓鎴恱ml鐨刯ava椤圭洰
+杩愯test.java
+杈撳叆鐨剎ml鏂囦欢锛坰tudent1.xml锛変綅浜巇omtest椤圭洰鏍规枃浠跺す
+鐢熸垚鐨剎ml鏂囦欢锛坱est.xml锛変綅浜巇omtest椤圭洰鏍规枃浠跺す

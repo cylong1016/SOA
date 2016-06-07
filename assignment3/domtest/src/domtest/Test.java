@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package domtest;
 
 import java.io.File;
@@ -20,67 +19,67 @@ import org.w3c.dom.Text;
 public class Test {
 	
 	public static void addStudent(Document doc,Element root,String id,String name){
-		//¹¹½¨XMLÖÐµÄ½Úµã:
+		//æž„å»ºXMLä¸­çš„èŠ‚ç‚¹:
         
-        Element studentElement = doc.createElement("Ñ§Éú");
-        Element mainInfoElement = doc.createElement("¸öÈË»ù±¾ÐÅÏ¢");
-        Element nameElement = doc.createElement("ÐÕÃû");
-        Element idElement = doc.createElement("Ñ§ºÅ");
-        Element departmentElement = doc.createElement("µ¥Î»ÐÅÏ¢");
-        Element departNameElement = doc.createElement("µ¥Î»²¿ÃÅÃû");
-        Element departIdElement = doc.createElement("²¿ÃÅ±àºÅ");
-        Element jobElement = doc.createElement("Ö°Îñ");
-        Element singleManScoreElement = doc.createElement("¸öÈË³É¼¨");
-        Element singleCourseElement1 = doc.createElement("µ¥¿Æ³É¼¨");
-        Element courseInfoElement1 = doc.createElement("¿Î³Ì");
-        Element courseIdElement1 = doc.createElement("¿Î³Ì±àºÅ");
-        Element courseTeacherElement1 = doc.createElement("¿Î³Ì½²Ê¦");
+        Element studentElement = doc.createElement("å­¦ç”Ÿ");
+        Element mainInfoElement = doc.createElement("ä¸ªäººåŸºæœ¬ä¿¡æ¯");
+        Element nameElement = doc.createElement("å§“å");
+        Element idElement = doc.createElement("å­¦å·");
+        Element departmentElement = doc.createElement("å•ä½ä¿¡æ¯");
+        Element departNameElement = doc.createElement("å•ä½éƒ¨é—¨å");
+        Element departIdElement = doc.createElement("éƒ¨é—¨ç¼–å·");
+        Element jobElement = doc.createElement("èŒåŠ¡");
+        Element singleManScoreElement = doc.createElement("ä¸ªäººæˆç»©");
+        Element singleCourseElement1 = doc.createElement("å•ç§‘æˆç»©");
+        Element courseInfoElement1 = doc.createElement("è¯¾ç¨‹");
+        Element courseIdElement1 = doc.createElement("è¯¾ç¨‹ç¼–å·");
+        Element courseTeacherElement1 = doc.createElement("è¯¾ç¨‹è®²å¸ˆ");
         
-        Element singleCourseElement2 = doc.createElement("µ¥¿Æ³É¼¨");
-        Element courseInfoElement2 = doc.createElement("¿Î³Ì");
-        Element courseIdElement2 = doc.createElement("¿Î³Ì±àºÅ");
-        Element courseTeacherElement2 = doc.createElement("¿Î³Ì½²Ê¦");
+        Element singleCourseElement2 = doc.createElement("å•ç§‘æˆç»©");
+        Element courseInfoElement2 = doc.createElement("è¯¾ç¨‹");
+        Element courseIdElement2 = doc.createElement("è¯¾ç¨‹ç¼–å·");
+        Element courseTeacherElement2 = doc.createElement("è¯¾ç¨‹è®²å¸ˆ");
         
-        Element singleCourseElement3 = doc.createElement("µ¥¿Æ³É¼¨");
-        Element courseInfoElement3 = doc.createElement("¿Î³Ì");
-        Element courseIdElement3 = doc.createElement("¿Î³Ì±àºÅ");
-        Element courseTeacherElement3 = doc.createElement("¿Î³Ì½²Ê¦");
+        Element singleCourseElement3 = doc.createElement("å•ç§‘æˆç»©");
+        Element courseInfoElement3 = doc.createElement("è¯¾ç¨‹");
+        Element courseIdElement3 = doc.createElement("è¯¾ç¨‹ç¼–å·");
+        Element courseTeacherElement3 = doc.createElement("è¯¾ç¨‹è®²å¸ˆ");
         
-        Element singleCourseElement4 = doc.createElement("µ¥¿Æ³É¼¨");
-        Element courseInfoElement4 = doc.createElement("¿Î³Ì");
-        Element courseIdElement4 = doc.createElement("¿Î³Ì±àºÅ");
-        Element courseTeacherElement4 = doc.createElement("¿Î³Ì½²Ê¦");
+        Element singleCourseElement4 = doc.createElement("å•ç§‘æˆç»©");
+        Element courseInfoElement4 = doc.createElement("è¯¾ç¨‹");
+        Element courseIdElement4 = doc.createElement("è¯¾ç¨‹ç¼–å·");
+        Element courseTeacherElement4 = doc.createElement("è¯¾ç¨‹è®²å¸ˆ");
         
-        Element singleCourseElement5 = doc.createElement("µ¥¿Æ³É¼¨");
-        Element courseInfoElement5 = doc.createElement("¿Î³Ì");
-        Element courseIdElement5 = doc.createElement("¿Î³Ì±àºÅ");
-        Element courseTeacherElement5 = doc.createElement("¿Î³Ì½²Ê¦");
+        Element singleCourseElement5 = doc.createElement("å•ç§‘æˆç»©");
+        Element courseInfoElement5 = doc.createElement("è¯¾ç¨‹");
+        Element courseIdElement5 = doc.createElement("è¯¾ç¨‹ç¼–å·");
+        Element courseTeacherElement5 = doc.createElement("è¯¾ç¨‹è®²å¸ˆ");
         
-        Element normalElement1 = doc.createElement("Æ½Ê±³É¼¨");
-        Element testElement1 = doc.createElement("ÆÚÄ©³É¼¨");
-        Element lastElement1 = doc.createElement("×ÜÆÀ³É¼¨");
-        Element normalElement2 = doc.createElement("Æ½Ê±³É¼¨");
-        Element testElement2 = doc.createElement("ÆÚÄ©³É¼¨");
-        Element lastElement2 = doc.createElement("×ÜÆÀ³É¼¨");
-        Element normalElement3 = doc.createElement("Æ½Ê±³É¼¨");
-        Element testElement3 = doc.createElement("ÆÚÄ©³É¼¨");
-        Element lastElement3 = doc.createElement("×ÜÆÀ³É¼¨");
-        Element normalElement4 = doc.createElement("Æ½Ê±³É¼¨");
-        Element testElement4 = doc.createElement("ÆÚÄ©³É¼¨");
-        Element lastElement4 = doc.createElement("×ÜÆÀ³É¼¨");
-        Element normalElement5 = doc.createElement("Æ½Ê±³É¼¨");
-        Element testElement5 = doc.createElement("ÆÚÄ©³É¼¨");
-        Element lastElement5 = doc.createElement("×ÜÆÀ³É¼¨");
+        Element normalElement1 = doc.createElement("å¹³æ—¶æˆç»©");
+        Element testElement1 = doc.createElement("æœŸæœ«æˆç»©");
+        Element lastElement1 = doc.createElement("æ€»è¯„æˆç»©");
+        Element normalElement2 = doc.createElement("å¹³æ—¶æˆç»©");
+        Element testElement2 = doc.createElement("æœŸæœ«æˆç»©");
+        Element lastElement2 = doc.createElement("æ€»è¯„æˆç»©");
+        Element normalElement3 = doc.createElement("å¹³æ—¶æˆç»©");
+        Element testElement3 = doc.createElement("æœŸæœ«æˆç»©");
+        Element lastElement3 = doc.createElement("æ€»è¯„æˆç»©");
+        Element normalElement4 = doc.createElement("å¹³æ—¶æˆç»©");
+        Element testElement4 = doc.createElement("æœŸæœ«æˆç»©");
+        Element lastElement4 = doc.createElement("æ€»è¯„æˆç»©");
+        Element normalElement5 = doc.createElement("å¹³æ—¶æˆç»©");
+        Element testElement5 = doc.createElement("æœŸæœ«æˆç»©");
+        Element lastElement5 = doc.createElement("æ€»è¯„æˆç»©");
         
-        //Êý¾Ý¼ÓÔØ:
+        //æ•°æ®åŠ è½½:
         Text studentValue = doc.createTextNode(name);
         Text idValue = doc.createTextNode(id);
-        Text departNameValue = doc.createTextNode("Ñ§¹¤´¦");
+        Text departNameValue = doc.createTextNode("å­¦å·¥å¤„");
         Text departIdValue = doc.createTextNode("000001");
-        Text jobValue = doc.createTextNode("Ñ§¹¤");
+        Text jobValue = doc.createTextNode("å­¦å·¥");
         
         
-       //°´Ë³ÐòÌí¼Ó¸÷¸ö½Úµã
+       //æŒ‰é¡ºåºæ·»åŠ å„ä¸ªèŠ‚ç‚¹
 
         root.appendChild(studentElement);
         studentElement.appendChild(mainInfoElement);
@@ -200,201 +199,38 @@ public class Test {
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document doc = builder.newDocument();
                
-        //¹¹½¨XMLÖÐµÄ½Úµã:
-        Element root = doc.createElement("Ñ§ÉúÁÐ±í");
+        //æž„å»ºXMLä¸­çš„èŠ‚ç‚¹:
+        Element root = doc.createElement("å­¦ç”Ÿåˆ—è¡¨");
        
-       //°´Ë³ÐòÌí¼Ó¸÷¸ö½Úµã
+       //æŒ‰é¡ºåºæ·»åŠ å„ä¸ªèŠ‚ç‚¹
         doc.appendChild(root);
         
         Document document = builder.parse(new File("../domtest/student1.xml"));
         
        // Element sampleElement = document.getDocumentElement();
         
-        Node sampleNode = doc.importNode(document.getElementsByTagName("Ñ§Éú").item(0), true);
+        Node sampleNode = doc.importNode(document.getElementsByTagName("å­¦ç”Ÿ").item(0), true);
         
         root.appendChild(sampleNode);
         
-        addStudent(doc,root,"131250018","ÍõÒ»çù");
-        addStudent(doc,root,"131250216","ÎÄìÓÒå");
-        addStudent(doc,root,"131250181","³ÂÔÆÁú");
-        addStudent(doc,root,"131250XXX","»ÆÕñºÀ");
-        addStudent(doc,root,"131250XXX","ÀûÁ¦");
-        addStudent(doc,root,"131250XXX","À×ÔóÕþ");
-        addStudent(doc,root,"131250XXX","Ð¤Èð");
-        addStudent(doc,root,"131250XXX","³Ìê»");
-        addStudent(doc,root,"131250XXX","ÍõÄþ");
-        addStudent(doc,root,"131250XXX","ÕÅ½Ý");
-        addStudent(doc,root,"131250XXX","¶­ÄþÄþ");
+        addStudent(doc,root,"131250018","çŽ‹ä¸€ç¦");
+        addStudent(doc,root,"131250216","æ–‡ç…Šä¹‰");
+        addStudent(doc,root,"131250181","é™ˆäº‘é¾™");
+        addStudent(doc,root,"131250XXX","é»„æŒ¯è±ª");
+        addStudent(doc,root,"131250XXX","åˆ©åŠ›");
+        addStudent(doc,root,"131250XXX","é›·æ³½æ”¿");
+        addStudent(doc,root,"131250XXX","è‚–ç‘ž");
+        addStudent(doc,root,"131250XXX","ç¨‹æ˜Š");
+        addStudent(doc,root,"131250XXX","çŽ‹å®");
+        addStudent(doc,root,"131250XXX","å¼ æ·");
+        addStudent(doc,root,"131250XXX","è‘£å®å®");
          
         Transformer t=TransformerFactory.newInstance().newTransformer();
-        //ÉèÖÃ»»ÐÐºÍËõ½ø
+        //è®¾ç½®æ¢è¡Œå’Œç¼©è¿›
         t.setOutputProperty(OutputKeys.INDENT,"yes");
         t.setOutputProperty(OutputKeys.METHOD, "xml");
         t.transform(new DOMSource(doc), new StreamResult(new FileOutputStream(new File("../domtest/text.xml"))));
  
     }
  
-=======
-package domtest;
-
-import java.io.File;
-import java.io.FileOutputStream;
- 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
- 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Text;
- 
-public class Test {
-	
-	public static void addStudent(Document doc,Element root,String id,String name){
-		//¹¹½¨XMLÖÐµÄ½Úµã:
-        
-        Element studentElement = doc.createElement("Ñ§Éú");
-        Element nameElement = doc.createElement("ÐÕÃû");
-        Element idElement = doc.createElement("Ñ§ºÅ");
-        Element singleManScoreElement = doc.createElement("¸öÈË³É¼¨");
-        Element singleCourseElement1 = doc.createElement("µ¥¿Æ³É¼¨");
-        Element singleCourseElement2 = doc.createElement("µ¥¿Æ³É¼¨");
-        Element singleCourseElement3 = doc.createElement("µ¥¿Æ³É¼¨");
-        Element singleCourseElement4 = doc.createElement("µ¥¿Æ³É¼¨");
-        Element singleCourseElement5 = doc.createElement("µ¥¿Æ³É¼¨");
-        Element normalElement1 = doc.createElement("Æ½Ê±³É¼¨");
-        Element testElement1 = doc.createElement("ÆÚÄ©³É¼¨");
-        Element lastElement1 = doc.createElement("×ÜÆÀ³É¼¨");
-        Element normalElement2 = doc.createElement("Æ½Ê±³É¼¨");
-        Element testElement2 = doc.createElement("ÆÚÄ©³É¼¨");
-        Element lastElement2 = doc.createElement("×ÜÆÀ³É¼¨");
-        Element normalElement3 = doc.createElement("Æ½Ê±³É¼¨");
-        Element testElement3 = doc.createElement("ÆÚÄ©³É¼¨");
-        Element lastElement3 = doc.createElement("×ÜÆÀ³É¼¨");
-        Element normalElement4 = doc.createElement("Æ½Ê±³É¼¨");
-        Element testElement4 = doc.createElement("ÆÚÄ©³É¼¨");
-        Element lastElement4 = doc.createElement("×ÜÆÀ³É¼¨");
-        Element normalElement5 = doc.createElement("Æ½Ê±³É¼¨");
-        Element testElement5 = doc.createElement("ÆÚÄ©³É¼¨");
-        Element lastElement5 = doc.createElement("×ÜÆÀ³É¼¨");
-        
-        //Êý¾Ý¼ÓÔØ:
-        Text studentValue = doc.createTextNode(name);
-        Text idValue = doc.createTextNode(id);
-        
-        
-        
-       //°´Ë³ÐòÌí¼Ó¸÷¸ö½Úµã
-
-        root.appendChild(studentElement);
-        studentElement.appendChild(nameElement);
-        nameElement.appendChild(studentValue);
-        studentElement.appendChild(idElement);
-        idElement.appendChild(idValue);
-        studentElement.appendChild(singleManScoreElement);
-        singleManScoreElement.appendChild(singleCourseElement1);
-        singleManScoreElement.appendChild(singleCourseElement2);
-        singleManScoreElement.appendChild(singleCourseElement3);
-        singleManScoreElement.appendChild(singleCourseElement4);
-        singleManScoreElement.appendChild(singleCourseElement5);
-        
-        singleCourseElement1.setAttribute("¿Î³Ì±àºÅ", "000001");
-        Text normalValue1 = doc.createTextNode(String.valueOf(Math.random()*100));
-        Text testValue1 = doc.createTextNode(String.valueOf(Math.random()*100));
-        Text lastValue1 = doc.createTextNode(String.valueOf(Math.random()*100));
-        
-        singleCourseElement1.appendChild(normalElement1);
-        singleCourseElement1.appendChild(testElement1);
-        singleCourseElement1.appendChild(lastElement1);
-        normalElement1.appendChild(normalValue1);
-        testElement1.appendChild(testValue1);
-        lastElement1.appendChild(lastValue1);
-        
-        singleCourseElement2.setAttribute("¿Î³Ì±àºÅ", "000002");
-        Text normalValue2 = doc.createTextNode(String.valueOf(Math.random()*100));
-        Text testValue2 = doc.createTextNode(String.valueOf(Math.random()*100));
-        Text lastValue2 = doc.createTextNode(String.valueOf(Math.random()*100));
-        
-        singleCourseElement2.appendChild(normalElement2);
-        singleCourseElement2.appendChild(testElement2);
-        singleCourseElement2.appendChild(lastElement2);
-        normalElement2.appendChild(normalValue2);
-        testElement2.appendChild(testValue2);
-        lastElement2.appendChild(lastValue2);
-        
-        singleCourseElement3.setAttribute("¿Î³Ì±àºÅ", "000003");
-        Text normalValue3 = doc.createTextNode(String.valueOf(Math.random()*100));
-        Text testValue3 = doc.createTextNode(String.valueOf(Math.random()*100));
-        Text lastValue3 = doc.createTextNode(String.valueOf(Math.random()*100));
-        
-        singleCourseElement3.appendChild(normalElement3);
-        singleCourseElement3.appendChild(testElement3);
-        singleCourseElement3.appendChild(lastElement3);
-        normalElement3.appendChild(normalValue3);
-        testElement3.appendChild(testValue3);
-        lastElement3.appendChild(lastValue3);
-        
-        singleCourseElement4.setAttribute("¿Î³Ì±àºÅ", "000004");
-        Text normalValue4 = doc.createTextNode(String.valueOf(Math.random()*100));
-        Text testValue4 = doc.createTextNode(String.valueOf(Math.random()*100));
-        Text lastValue4 = doc.createTextNode(String.valueOf(Math.random()*100));
-        
-        singleCourseElement4.appendChild(normalElement4);
-        singleCourseElement4.appendChild(testElement4);
-        singleCourseElement4.appendChild(lastElement4);
-        normalElement4.appendChild(normalValue4);
-        testElement4.appendChild(testValue4);
-        lastElement4.appendChild(lastValue4);
-        
-        singleCourseElement5.setAttribute("¿Î³Ì±àºÅ", "000005");
-        Text normalValue5 = doc.createTextNode(String.valueOf(Math.random()*100));
-        Text testValue5 = doc.createTextNode(String.valueOf(Math.random()*100));
-        Text lastValue5 = doc.createTextNode(String.valueOf(Math.random()*100));
-        
-        singleCourseElement5.appendChild(normalElement5);
-        singleCourseElement5.appendChild(testElement5);
-        singleCourseElement5.appendChild(lastElement5);
-        normalElement5.appendChild(normalValue5);
-        testElement5.appendChild(testValue5);
-        lastElement5.appendChild(lastValue5);
-	}
- 
-    public static void main(String[] args) throws Exception {
- 
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        Document doc = builder.newDocument();
-               
-        //¹¹½¨XMLÖÐµÄ½Úµã:
-        Element root = doc.createElement("Ñ§ÉúÁÐ±í");
-       
-       //°´Ë³ÐòÌí¼Ó¸÷¸ö½Úµã
-        doc.appendChild(root);
-        
-        addStudent(doc,root,"131250004","Ðì»ªèº");
-        addStudent(doc,root,"131250018","ÍõÒ»çù");
-        addStudent(doc,root,"131250216","ÎÄìÓÒå");
-        addStudent(doc,root,"131250181","³ÂÔÆÁú");
-        addStudent(doc,root,"131250XXX","»ÆÕñºÀ");
-        addStudent(doc,root,"131250XXX","ÀûÁ¦");
-        addStudent(doc,root,"131250XXX","À×ÔóÕþ");
-        addStudent(doc,root,"131250XXX","Ð¤Èð");
-        addStudent(doc,root,"131250XXX","³Ìê»");
-        addStudent(doc,root,"131250XXX","ÍõÄþ");
-        addStudent(doc,root,"131250XXX","ÕÅ½Ý");
-        addStudent(doc,root,"131250XXX","¶­ÄþÄþ");
-         
-        Transformer t=TransformerFactory.newInstance().newTransformer();
-        //ÉèÖÃ»»ÐÐºÍËõ½ø
-        t.setOutputProperty(OutputKeys.INDENT,"yes");
-        t.setOutputProperty(OutputKeys.METHOD, "xml");
-        t.transform(new DOMSource(doc), new StreamResult(new FileOutputStream(new File("../domtest/text.xml"))));
- 
-    }
- 
->>>>>>> origin/master
 }
