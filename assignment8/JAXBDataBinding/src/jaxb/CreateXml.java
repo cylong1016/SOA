@@ -2,6 +2,9 @@ package jaxb;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -17,10 +20,13 @@ import org.xml.sax.SAXException;
 import com.sun.xml.bind.marshaller.NamespacePrefixMapper;
 
 import entity.Course;
+import entity.CourseScore;
+import entity.CourseScoreList;
 import entity.Department;
 import entity.PersonInfo;
 import entity.Score;
 import entity.ScoreList;
+import entity.ScoreType;
 import entity.Student;
 import entity.StudentList;
 
@@ -31,6 +37,11 @@ import entity.StudentList;
 public class CreateXml {
 
 	public static void main(String[] args) throws Exception {
+		assigment3();
+		assigment4();
+	}
+
+	public static void assigment3() throws Exception {
 		JAXBContext context = JAXBContext.newInstance(StudentList.class);
 		Marshaller m = context.createMarshaller();
 		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
@@ -54,7 +65,42 @@ public class CreateXml {
 		System.out.println("生成 " + stuListXML + " 成功！");
 		checkXml(stuListXML, stuListXSD);
 	}
-
+	
+	public static void assigment4() throws Exception {
+		JAXBContext context = JAXBContext.newInstance(CourseScoreList.class);
+		Marshaller m = context.createMarshaller();
+		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+		StudentList stuList = CreateXml.getStudentList();
+		m.setProperty("com.sun.xml.bind.namespacePrefixMapper", new NamespacePrefixMapper() {
+			@Override
+			public String getPreferredPrefix(String namespaceUri, String suggestion, boolean requirePrefix) {
+				if (namespaceUri.equals("http://jw.nju.edu.cn/schema"))
+					return "tns";
+				if (namespaceUri.contains("http://www.nju.edu.cn/schema"))
+					return "nju";
+				return suggestion;
+			}
+		});
+		//所有成绩
+		CourseScoreList courseScoreList = getCourseScoreList(stuList,false);
+		
+		String stuListXML = "xml/ScoreList.xml";
+		String stuListXSD = "xsd/ScoreList.xsd";
+		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+		File file = new File(stuListXML);
+		m.marshal(courseScoreList, file);
+		System.out.println("生成 " + stuListXML + " 成功！");
+		checkXml(stuListXML, stuListXSD);
+		//不及格成绩
+		CourseScoreList courseScoreListFail = getCourseScoreList(stuList,true);
+		
+		String stuListXMLFail = "xml/ScoreListFail.xml";
+		m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+		File fileFail = new File(stuListXMLFail);
+		m.marshal(courseScoreListFail, fileFail);
+		System.out.println("生成 " + stuListXMLFail + " 成功！");
+		checkXml(stuListXMLFail, stuListXSD);
+	}
 	public static void checkXml(String xmlFile, String xsdFile) throws Exception {
 		SchemaFactory factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
 		File schemaLocation = new File(xsdFile);
@@ -121,4 +167,61 @@ public class CreateXml {
 		return stuList;
 	}
 
+	public static CourseScoreList getCourseScoreList(StudentList stuList,boolean isFail) {
+		
+		CourseScoreList courseScoreList = new CourseScoreList();
+		HashMap<String, CourseScore> courseMap = new HashMap<String, CourseScore>();
+		for(Student student: stuList.getStudentList()){
+			String sid = student.getInfo().getId();
+			
+			for(Score score:student.getScoreList().getScoreList())
+			{
+				String cid = score.getCourse().getId();
+				checkAddScore(courseMap,sid,cid,"期末成绩",Integer.parseInt(score.getEnd()),isFail);
+				checkAddScore(courseMap,sid,cid,"平时成绩",Integer.parseInt(score.getNormal()),isFail);
+				checkAddScore(courseMap,sid,cid,"总评成绩",Integer.parseInt(score.getOverall()),isFail);
+				
+			}
+		}
+		
+		ArrayList<CourseScore> courseScores = new ArrayList<CourseScore>();
+		Iterator<?> iterator = courseMap.entrySet().iterator();
+		while (iterator.hasNext()) {
+			@SuppressWarnings("unchecked")
+			Entry<String, CourseScore> entry = (Entry<String, CourseScore>) iterator.next();
+			ArrayList<ScoreType> cs = ((CourseScore)entry.getValue()).getCourseScrores();
+			java.util.Collections.sort(cs);
+			courseScores.add((CourseScore)entry.getValue());
+		}
+		java.util.Collections.sort(courseScores);
+		courseScoreList.setCourseScores(courseScores);
+		return courseScoreList;
+	}
+	
+	public static void checkAddScore(HashMap<String, CourseScore> courseMap,String sid
+			,String cid,String type,int score,boolean isFail){
+		
+		if(isFail)
+		{
+			if(score >= 60)
+				return;
+		}
+		ScoreType scoreType = new ScoreType();
+		scoreType.setId(sid);
+		scoreType.setScore(score);
+		
+		String key = cid + '-' + type;
+		if(courseMap.containsKey(key))
+		{
+			CourseScore courseScore = courseMap.get(key);
+			courseScore.getCourseScrores().add(scoreType);
+		}else{
+			CourseScore courseScore = new CourseScore();
+			courseScore.setId(cid);
+			courseScore.setType(type);
+			courseScore.setCourseScrores(new ArrayList<ScoreType>());
+			courseScore.getCourseScrores().add(scoreType);
+			courseMap.put(key, courseScore);
+		}
+	}
 }
