@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:jw="http://jw.nju.edu.cn/schema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://jw.nju.edu.cn/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="StudentService" targetNamespace="http://jw.nju.edu.cn/wsdl">
+	
+	<wsdl:types>
+		<xs:schema targetNamespace="http://jw.nju.edu.cn/wsdl">
+            <xs:import namespace="http://jw.nju.edu.cn/schema" schemaLocation="xsd/StudentScore.xsd"/>
+            <xs:element name="studentNo" type="jw:学号类型"/>
+            <xs:element name="scoreList" type="jw:学生成绩列表的结构"/>
+			<xs:element name="addScore" type="jw:添加或修改学生成绩的结构"/>
+			<xs:element name="delScore" type="jw:删除学生成绩的结构"/>
+			<xs:element name="invalidDataError" type="xs:string"/>
+			<xs:element name="isSuccess" type="xs:string"/>
+		</xs:schema>
+	</wsdl:types>
+	
+    <wsdl:message name="searchScoreRequest">
+		<wsdl:part element="tns:studentNo" name="studentNo"/>
+	</wsdl:message>
+	
+    <wsdl:message name="searchScoreResponse">
+    	<wsdl:part element="tns:scoreList" name="scoreList"/>
+    </wsdl:message>
+    
+    <wsdl:message name="searchScoreFault">
+    	<wsdl:part element="tns:invalidDataError" name="fault"/>
+    </wsdl:message>
+    
+    <wsdl:message name="addScoreRequest">
+		<wsdl:part element="tns:addScore" name="addScore"/>
+	</wsdl:message>
+	
+    <wsdl:message name="addScoreResponse">
+    	<wsdl:part element="tns:isSuccess" name="isSuccess"/>
+    </wsdl:message>
+    
+    <wsdl:message name="addScoreFault">
+    	<wsdl:part element="tns:invalidDataError" name="fault"/>
+    </wsdl:message>
+    
+    <wsdl:message name="deleteScoreRequest">
+		<wsdl:part element="tns:delScore" name="delScore"/>
+	</wsdl:message>
+	
+    <wsdl:message name="deleteScoreResponse">
+    	<wsdl:part element="tns:isSuccess" name="isSuccess"/>
+    </wsdl:message>
+    
+    <wsdl:message name="deleteScoreFault">
+    	<wsdl:part element="tns:invalidDataError" name="fault"/>
+    </wsdl:message>
+    
+     <wsdl:message name="modifyScoreRequest">
+		<wsdl:part element="tns:addScore" name="modSocre"/>
+     </wsdl:message>
+	
+    <wsdl:message name="modifyScoreResponse">
+    	<wsdl:part element="tns:isSuccess" name="isSuccess"/>
+    </wsdl:message>
+    
+    <wsdl:message name="modifyScoreFault">
+    	<wsdl:part element="tns:invalidDataError" name="fault"/>
+    </wsdl:message>
+    
+    <wsdl:portType name="ScoreInterface">
+        <wsdl:operation name="searchScore">
+        	<wsdl:input message="tns:searchScoreRequest"/>
+        	<wsdl:output message="tns:searchScoreResponse"/>
+            <wsdl:fault message="tns:searchScoreFault" name="fault"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="addScore">
+        	<wsdl:input message="tns:addScoreRequest"/>
+        	<wsdl:output message="tns:addScoreResponse"/>
+            <wsdl:fault message="tns:addScoreFault" name="fault"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="deleteScore">
+        	<wsdl:input message="tns:deleteScoreRequest"/>
+        	<wsdl:output message="tns:deleteScoreResponse"/>
+            <wsdl:fault message="tns:deleteScoreFault" name="fault"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="modifyScore">
+        	<wsdl:input message="tns:modifyScoreRequest"/>
+        	<wsdl:output message="tns:modifyScoreResponse"/>
+            <wsdl:fault message="tns:modifyScoreFault" name="fault"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    
+    <wsdl:binding name="ScoreSoapBinding" type="tns:ScoreInterface">
+    	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+    	<wsdl:operation name="searchScore">
+    		<soap:operation soapAction="http://jw.nju.edu.cn/wsdl/searchScore"/>
+    		
+    		<wsdl:input>
+    			<soap:body use="literal"/>
+    		</wsdl:input>
+    		
+    		<wsdl:output>
+    			<soap:body use="literal"/>
+    		</wsdl:output>
+    		
+    		<wsdl:fault name="fault">
+    			<soap:fault name="fault" use="literal"/>
+    		</wsdl:fault>
+    		
+    	</wsdl:operation>
+    	<wsdl:operation name="addScore">
+    		<soap:operation soapAction="http://jw.nju.edu.cn/wsdl/addScore"/>
+    		
+    		<wsdl:input>
+    			<soap:body use="literal"/>
+    		</wsdl:input>
+    		
+    		<wsdl:output>
+    			<soap:body use="literal"/>
+    		</wsdl:output>
+    		
+    		<wsdl:fault name="fault">
+    			<soap:fault name="fault" use="literal"/>
+    		</wsdl:fault>
+    		
+    	</wsdl:operation>
+    	<wsdl:operation name="deleteScore">
+    		<soap:operation soapAction="http://jw.nju.edu.cn/wsdl/deleteScore"/>
+    		
+    		<wsdl:input>
+    			<soap:body use="literal"/>
+    		</wsdl:input>
+    		
+    		<wsdl:output>
+    			<soap:body use="literal"/>
+    		</wsdl:output>
+    		
+    		<wsdl:fault name="fault">
+    			<soap:fault name="fault" use="literal"/>
+    		</wsdl:fault>
+    		
+    	</wsdl:operation>
+    	<wsdl:operation name="modifyScore">
+    		<soap:operation soapAction="http://jw.nju.edu.cn/wsdl/modifyScore"/>
+    		
+    		<wsdl:input>
+    			<soap:body use="literal"/>
+    		</wsdl:input>
+    		
+    		<wsdl:output>
+    			<soap:body use="literal"/>
+    		</wsdl:output>
+    		
+    		<wsdl:fault name="fault">
+    			<soap:fault name="fault" use="literal"/>
+    		</wsdl:fault>
+    		
+    	</wsdl:operation>
+    </wsdl:binding>
+  
+    <wsdl:service name="ScoreService">
+        <wsdl:port binding="tns:ScoreSoapBinding" name="ScorePort">
+        	<soap:address location="http://localhost:8080/assignment10WSDL/services/ScorePort"/>
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>
