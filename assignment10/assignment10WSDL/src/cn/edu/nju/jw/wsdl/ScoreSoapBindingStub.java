@@ -27,8 +27,8 @@ public class ScoreSoapBindingStub extends org.apache.axis.client.Stub implements
         oper.setName("searchScore");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://jw.nju.edu.cn/wsdl", "studentNo"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "学号类型"), java.lang.String.class, false, false);
         oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "学生成绩列表的结构"));
-        oper.setReturnClass(cn.edu.nju.jw.schema.学生成绩列表的结构.class);
+        oper.setReturnType(new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "单个学生成绩列表类型"));
+        oper.setReturnClass(cn.edu.nju.jw.schema.单个学生成绩列表类型.class);
         oper.setReturnQName(new javax.xml.namespace.QName("http://jw.nju.edu.cn/wsdl", "scoreList"));
         oper.setStyle(org.apache.axis.constants.Style.DOCUMENT);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
@@ -42,13 +42,7 @@ public class ScoreSoapBindingStub extends org.apache.axis.client.Stub implements
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("addScore");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "学号"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "学号类型"), java.lang.String.class, false, false);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "课程编号"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "课程编号"), java.lang.String.class, false, false);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "成绩类型"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "成绩类型"), cn.edu.nju.jw.schema.成绩类型.class, false, false);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "得分"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "得分类型"), int.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://jw.nju.edu.cn/wsdl", "addScore"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "添加或修改成绩类型"), cn.edu.nju.jw.schema.添加或修改成绩类型.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         oper.setReturnClass(java.lang.String.class);
@@ -65,7 +59,7 @@ public class ScoreSoapBindingStub extends org.apache.axis.client.Stub implements
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("deleteScore");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://jw.nju.edu.cn/wsdl", "delScore"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "删除学生成绩的结构"), cn.edu.nju.jw.schema.删除学生成绩的结构.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://jw.nju.edu.cn/wsdl", "delScore"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "删除成绩类型"), cn.edu.nju.jw.schema.删除成绩类型.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         oper.setReturnClass(java.lang.String.class);
@@ -82,7 +76,7 @@ public class ScoreSoapBindingStub extends org.apache.axis.client.Stub implements
 
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("modifyScore");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://jw.nju.edu.cn/wsdl", "addScore"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "添加或修改学生成绩的结构"), cn.edu.nju.jw.schema.添加或修改学生成绩的结构.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://jw.nju.edu.cn/wsdl", "addScore"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "添加或修改成绩类型"), cn.edu.nju.jw.schema.添加或修改成绩类型.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         oper.setReturnClass(java.lang.String.class);
@@ -128,37 +122,23 @@ public class ScoreSoapBindingStub extends org.apache.axis.client.Stub implements
             java.lang.Class simpledf = org.apache.axis.encoding.ser.SimpleDeserializerFactory.class;
             java.lang.Class simplelistsf = org.apache.axis.encoding.ser.SimpleListSerializerFactory.class;
             java.lang.Class simplelistdf = org.apache.axis.encoding.ser.SimpleListDeserializerFactory.class;
-            qName = new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "个人基本信息");
+            qName = new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "删除成绩类型");
             cachedSerQNames.add(qName);
-            cls = cn.edu.nju.jw.schema.个人基本信息.class;
+            cls = cn.edu.nju.jw.schema.删除成绩类型.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "个人成绩类型");
+            qName = new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "单个学生成绩列表类型");
             cachedSerQNames.add(qName);
-            cls = cn.edu.nju.jw.schema.个人成绩类型.class;
+            cls = cn.edu.nju.jw.schema.单个学生成绩列表类型.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "删除学生成绩的结构");
+            qName = new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "单项成绩类型");
             cachedSerQNames.add(qName);
-            cls = cn.edu.nju.jw.schema.删除学生成绩的结构.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "单位信息");
-            cachedSerQNames.add(qName);
-            cls = cn.edu.nju.jw.schema.单位信息.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "单科成绩类型");
-            cachedSerQNames.add(qName);
-            cls = cn.edu.nju.jw.schema.单科成绩类型.class;
+            cls = cn.edu.nju.jw.schema.单项成绩类型.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
@@ -170,13 +150,6 @@ public class ScoreSoapBindingStub extends org.apache.axis.client.Stub implements
             cachedSerFactories.add(org.apache.axis.encoding.ser.BaseSerializerFactory.createFactory(org.apache.axis.encoding.ser.SimpleSerializerFactory.class, cls, qName));
             cachedDeserFactories.add(org.apache.axis.encoding.ser.BaseDeserializerFactory.createFactory(org.apache.axis.encoding.ser.SimpleDeserializerFactory.class, cls, qName));
 
-            qName = new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "学生成绩列表的结构");
-            cachedSerQNames.add(qName);
-            cls = cn.edu.nju.jw.schema.学生成绩列表的结构.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
             qName = new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "得分类型");
             cachedSerQNames.add(qName);
             cls = int.class;
@@ -184,35 +157,21 @@ public class ScoreSoapBindingStub extends org.apache.axis.client.Stub implements
             cachedSerFactories.add(org.apache.axis.encoding.ser.BaseSerializerFactory.createFactory(org.apache.axis.encoding.ser.SimpleSerializerFactory.class, cls, qName));
             cachedDeserFactories.add(org.apache.axis.encoding.ser.BaseDeserializerFactory.createFactory(org.apache.axis.encoding.ser.SimpleDeserializerFactory.class, cls, qName));
 
-            qName = new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "成绩类型");
+            qName = new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "成绩性质类型");
             cachedSerQNames.add(qName);
-            cls = cn.edu.nju.jw.schema.成绩类型.class;
+            cls = cn.edu.nju.jw.schema.成绩性质类型.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(enumsf);
             cachedDeserFactories.add(enumdf);
 
-            qName = new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "添加或修改学生成绩的结构");
+            qName = new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "添加或修改成绩类型");
             cachedSerQNames.add(qName);
-            cls = cn.edu.nju.jw.schema.添加或修改学生成绩的结构.class;
+            cls = cn.edu.nju.jw.schema.添加或修改成绩类型.class;
             cachedSerClasses.add(cls);
             cachedSerFactories.add(beansf);
             cachedDeserFactories.add(beandf);
 
-            qName = new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "课程");
-            cachedSerQNames.add(qName);
-            cls = cn.edu.nju.jw.schema.课程.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(beansf);
-            cachedDeserFactories.add(beandf);
-
-            qName = new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "课程编号");
-            cachedSerQNames.add(qName);
-            cls = java.lang.String.class;
-            cachedSerClasses.add(cls);
-            cachedSerFactories.add(org.apache.axis.encoding.ser.BaseSerializerFactory.createFactory(org.apache.axis.encoding.ser.SimpleSerializerFactory.class, cls, qName));
-            cachedDeserFactories.add(org.apache.axis.encoding.ser.BaseDeserializerFactory.createFactory(org.apache.axis.encoding.ser.SimpleDeserializerFactory.class, cls, qName));
-
-            qName = new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "部门编号类型");
+            qName = new javax.xml.namespace.QName("http://jw.nju.edu.cn/schema", "课程编号类型");
             cachedSerQNames.add(qName);
             cls = java.lang.String.class;
             cachedSerClasses.add(cls);
@@ -285,7 +244,7 @@ public class ScoreSoapBindingStub extends org.apache.axis.client.Stub implements
         }
     }
 
-    public cn.edu.nju.jw.schema.学生成绩列表的结构 searchScore(java.lang.String studentNo) throws java.rmi.RemoteException, cn.edu.nju.jw.wsdl.SearchScoreFault {
+    public cn.edu.nju.jw.schema.单个学生成绩列表类型 searchScore(java.lang.String studentNo) throws java.rmi.RemoteException, cn.edu.nju.jw.wsdl.SearchScoreFault {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -309,9 +268,9 @@ public class ScoreSoapBindingStub extends org.apache.axis.client.Stub implements
         else {
             extractAttachments(_call);
             try {
-                return (cn.edu.nju.jw.schema.学生成绩列表的结构) _resp;
+                return (cn.edu.nju.jw.schema.单个学生成绩列表类型) _resp;
             } catch (java.lang.Exception _exception) {
-                return (cn.edu.nju.jw.schema.学生成绩列表的结构) org.apache.axis.utils.JavaUtils.convert(_resp, cn.edu.nju.jw.schema.学生成绩列表的结构.class);
+                return (cn.edu.nju.jw.schema.单个学生成绩列表类型) org.apache.axis.utils.JavaUtils.convert(_resp, cn.edu.nju.jw.schema.单个学生成绩列表类型.class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {
@@ -327,7 +286,7 @@ public class ScoreSoapBindingStub extends org.apache.axis.client.Stub implements
 }
     }
 
-    public java.lang.String addScore(java.lang.String 学号, java.lang.String 课程编号, cn.edu.nju.jw.schema.成绩类型 成绩类型, int 得分) throws java.rmi.RemoteException, cn.edu.nju.jw.wsdl.AddScoreFault {
+    public java.lang.String addScore(cn.edu.nju.jw.schema.添加或修改成绩类型 addScore) throws java.rmi.RemoteException, cn.edu.nju.jw.wsdl.AddScoreFault {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -343,7 +302,7 @@ public class ScoreSoapBindingStub extends org.apache.axis.client.Stub implements
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {学号, 课程编号, 成绩类型, new java.lang.Integer(得分)});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {addScore});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -369,7 +328,7 @@ public class ScoreSoapBindingStub extends org.apache.axis.client.Stub implements
 }
     }
 
-    public java.lang.String deleteScore(cn.edu.nju.jw.schema.删除学生成绩的结构 delScore) throws java.rmi.RemoteException, cn.edu.nju.jw.wsdl.DeleteScoreFault {
+    public java.lang.String deleteScore(cn.edu.nju.jw.schema.删除成绩类型 delScore) throws java.rmi.RemoteException, cn.edu.nju.jw.wsdl.DeleteScoreFault {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -411,7 +370,7 @@ public class ScoreSoapBindingStub extends org.apache.axis.client.Stub implements
 }
     }
 
-    public java.lang.String modifyScore(cn.edu.nju.jw.schema.添加或修改学生成绩的结构 modSocre) throws java.rmi.RemoteException, cn.edu.nju.jw.wsdl.ModifyScoreFault {
+    public java.lang.String modifyScore(cn.edu.nju.jw.schema.添加或修改成绩类型 modSocre) throws java.rmi.RemoteException, cn.edu.nju.jw.wsdl.ModifyScoreFault {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }

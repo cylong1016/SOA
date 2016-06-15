@@ -3,11 +3,11 @@
 	
 	<wsdl:types>
 		<xs:schema targetNamespace="http://jw.nju.edu.cn/wsdl">
-            <xs:import namespace="http://jw.nju.edu.cn/schema" schemaLocation="xsd/StudentScore.xsd"/>
+            <xs:import namespace="http://jw.nju.edu.cn/schema" schemaLocation="xsd/ScoreManage.xsd"/>
             <xs:element name="studentNo" type="jw:学号类型"/>
-            <xs:element name="scoreList" type="jw:学生成绩列表的结构"/>
-			<xs:element name="addScore" type="jw:添加或修改学生成绩的结构"/>
-			<xs:element name="delScore" type="jw:删除学生成绩的结构"/>
+            <xs:element name="scoreList" type="jw:单个学生成绩列表类型"/>
+			<xs:element name="addScore" type="jw:添加或修改成绩类型"/>
+			<xs:element name="delScore" type="jw:删除成绩类型"/>
 			<xs:element name="invalidDataError" type="xs:string"/>
 			<xs:element name="isSuccess" type="xs:string"/>
 		</xs:schema>

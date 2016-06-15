@@ -25,16 +25,8 @@
 
       <typeMapping
         xmlns:ns="http://jw.nju.edu.cn/schema"
-        qname="ns:课程"
-        type="java:cn.edu.nju.jw.schema.课程"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="http://jw.nju.edu.cn/schema"
-        qname="ns:成绩类型"
-        type="java:cn.edu.nju.jw.schema.成绩类型"
+        qname="ns:成绩性质类型"
+        type="java:cn.edu.nju.jw.schema.成绩性质类型"
         serializer="org.apache.axis.encoding.ser.EnumSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.EnumDeserializerFactory"
         encodingStyle=""
@@ -49,58 +41,26 @@
       />
       <typeMapping
         xmlns:ns="http://jw.nju.edu.cn/schema"
-        qname="ns:删除学生成绩的结构"
-        type="java:cn.edu.nju.jw.schema.删除学生成绩的结构"
+        qname="ns:添加或修改成绩类型"
+        type="java:cn.edu.nju.jw.schema.添加或修改成绩类型"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""
       />
       <typeMapping
         xmlns:ns="http://jw.nju.edu.cn/schema"
-        qname="ns:课程编号"
+        qname="ns:单个学生成绩列表类型"
+        type="java:cn.edu.nju.jw.schema.单个学生成绩列表类型"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://jw.nju.edu.cn/schema"
+        qname="ns:课程编号类型"
         type="java:java.lang.String"
         serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="http://jw.nju.edu.cn/schema"
-        qname="ns:单位信息"
-        type="java:cn.edu.nju.jw.schema.单位信息"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="http://jw.nju.edu.cn/schema"
-        qname="ns:学生成绩列表的结构"
-        type="java:cn.edu.nju.jw.schema.学生成绩列表的结构"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="http://jw.nju.edu.cn/schema"
-        qname="ns:部门编号类型"
-        type="java:java.lang.String"
-        serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="http://jw.nju.edu.cn/schema"
-        qname="ns:个人基本信息"
-        type="java:cn.edu.nju.jw.schema.个人基本信息"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="http://jw.nju.edu.cn/schema"
-        qname="ns:添加或修改学生成绩的结构"
-        type="java:cn.edu.nju.jw.schema.添加或修改学生成绩的结构"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""
       />
       <typeMapping
@@ -113,16 +73,16 @@
       />
       <typeMapping
         xmlns:ns="http://jw.nju.edu.cn/schema"
-        qname="ns:个人成绩类型"
-        type="java:cn.edu.nju.jw.schema.个人成绩类型"
+        qname="ns:删除成绩类型"
+        type="java:cn.edu.nju.jw.schema.删除成绩类型"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""
       />
       <typeMapping
         xmlns:ns="http://jw.nju.edu.cn/schema"
-        qname="ns:单科成绩类型"
-        type="java:cn.edu.nju.jw.schema.单科成绩类型"
+        qname="ns:单项成绩类型"
+        type="java:cn.edu.nju.jw.schema.单项成绩类型"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""
