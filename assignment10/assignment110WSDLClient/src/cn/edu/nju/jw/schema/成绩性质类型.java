@@ -12,7 +12,7 @@ public class 成绩性质类型 implements java.io.Serializable {
     private static java.util.HashMap _table_ = new java.util.HashMap();
 
     // Constructor
-    public 成绩性质类型(java.lang.String value) {
+    protected 成绩性质类型(java.lang.String value) {
         _value_ = value;
         _table_.put(_value_,this);
     }

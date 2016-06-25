@@ -111,9 +111,9 @@ public class ScoreSoapBindingSkeleton implements cn.edu.nju.jw.wsdl.ScoreInterfa
     public ScoreSoapBindingSkeleton(cn.edu.nju.jw.wsdl.ScoreInterface impl) {
         this.impl = impl;
     }
-    public cn.edu.nju.jw.schema.单项成绩类型[] searchScore(java.lang.String studentNo) throws java.rmi.RemoteException, cn.edu.nju.jw.wsdl.SearchScoreFault
+    public cn.edu.nju.jw.schema.单个学生成绩列表类型 searchScore(java.lang.String studentNo) throws java.rmi.RemoteException, cn.edu.nju.jw.wsdl.SearchScoreFault
     {
-        cn.edu.nju.jw.schema.单项成绩类型[] ret = impl.searchScore(studentNo);
+        cn.edu.nju.jw.schema.单个学生成绩列表类型 ret = impl.searchScore(studentNo);
         return ret;
     }
 

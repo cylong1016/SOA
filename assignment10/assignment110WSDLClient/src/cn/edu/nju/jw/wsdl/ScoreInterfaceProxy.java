@@ -44,7 +44,7 @@ public class ScoreInterfaceProxy implements cn.edu.nju.jw.wsdl.ScoreInterface {
     return scoreInterface;
   }
   
-  public cn.edu.nju.jw.schema.单项成绩类型[] searchScore(java.lang.String studentNo) throws java.rmi.RemoteException, cn.edu.nju.jw.wsdl.SearchScoreFault{
+  public cn.edu.nju.jw.schema.单个学生成绩列表类型 searchScore(java.lang.String studentNo) throws java.rmi.RemoteException, cn.edu.nju.jw.wsdl.SearchScoreFault{
     if (scoreInterface == null)
       _initScoreInterfaceProxy();
     return scoreInterface.searchScore(studentNo);
