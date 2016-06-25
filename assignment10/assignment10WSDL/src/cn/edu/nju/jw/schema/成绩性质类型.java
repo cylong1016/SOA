@@ -7,17 +7,19 @@
 
 package cn.edu.nju.jw.schema;
 
+import org.w3c.dom.Node;
+
 public class 成绩性质类型 implements java.io.Serializable {
     private java.lang.String _value_;
     private static java.util.HashMap _table_ = new java.util.HashMap();
 
     // Constructor
-    protected 成绩性质类型(java.lang.String value) {
+    public 成绩性质类型(java.lang.String value) {
         _value_ = value;
         _table_.put(_value_,this);
     }
 
-    public static final java.lang.String _平时成绩 = "平时成绩";
+	public static final java.lang.String _平时成绩 = "平时成绩";
     public static final java.lang.String _作业成绩 = "作业成绩";
     public static final java.lang.String _期中成绩 = "期中成绩";
     public static final java.lang.String _期末成绩 = "期末成绩";

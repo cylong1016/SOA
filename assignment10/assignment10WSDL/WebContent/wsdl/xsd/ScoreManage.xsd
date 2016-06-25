@@ -4,8 +4,8 @@
 	<include schemaLocation="PersonInfo.xsd"/>
 	
 	<complexType name="单个学生成绩列表类型">
-		<sequence maxOccurs="unbounded" minOccurs="0">
-			<element name="单项成绩" type="tns:单项成绩类型"/>
+		<sequence>
+			<element maxOccurs="unbounded" minOccurs="0" name="单项成绩" type="tns:单项成绩类型"/>
 		</sequence>
 	</complexType>
 	

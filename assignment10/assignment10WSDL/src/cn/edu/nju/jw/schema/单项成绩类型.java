@@ -7,6 +7,8 @@
 
 package cn.edu.nju.jw.schema;
 
+import org.w3c.dom.Node;
+
 public class 单项成绩类型  implements java.io.Serializable {
     private java.lang.String 课程编号;  // attribute
 

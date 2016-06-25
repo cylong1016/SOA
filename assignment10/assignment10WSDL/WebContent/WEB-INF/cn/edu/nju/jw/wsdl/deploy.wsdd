@@ -47,12 +47,11 @@
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""
       />
-      <typeMapping
+      <arrayMapping
         xmlns:ns="http://jw.nju.edu.cn/schema"
         qname="ns:单个学生成绩列表类型"
-        type="java:cn.edu.nju.jw.schema.单个学生成绩列表类型"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        type="java:cn.edu.nju.jw.schema.单项成绩类型[]"
+        innerType="cmp-ns:单项成绩类型" xmlns:cmp-ns="http://jw.nju.edu.cn/schema"
         encodingStyle=""
       />
       <typeMapping
