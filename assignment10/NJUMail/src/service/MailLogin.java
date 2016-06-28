@@ -1,25 +1,22 @@
 package service;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Properties;
 
+import javax.jws.WebMethod;
+import javax.jws.WebService;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Store;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.Endpoint;
 
 /**
  * 登陆 NJU 邮箱
  * @author cylong
  * @version 2016年6月15日  下午7:13:34
  */
-@WebServlet("/MailLoginService")
-public class MailLoginService extends HttpServlet {
+@WebService
+public class MailLogin extends HttpServlet {
 
 	/** serialVersionUID */
 	private static final long serialVersionUID = -8499207644494251824L;
@@ -27,51 +24,14 @@ public class MailLoginService extends HttpServlet {
 	private static final String STUDENT = "Student";
 	private static final String GRA_STUDENT = "Graduate Student";
 	private static final String UNKNOWN = "Unknown";
-	
-	
-	/**
-	 * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		String mail = request.getParameter("mail");
-		String password = request.getParameter("password");
-		out.println(login(mail, password));
-	}
-	
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
+	private static final String FAIL = "Fail";
 	
 	public String login(String mail, String password) {
 		boolean success = authenticate(mail, password);
 		if(success) {
-			String message = "登陆成功！您的身份：";
-			String identity = checkIdentity(mail);
-			switch(identity) {
-			case TEACHER:
-				message += "老师";
-				break;
-			case STUDENT:
-				message += "学生";
-				break;
-			case GRA_STUDENT:
-				message += "研究生";
-				break;
-			case UNKNOWN:
-				message += "未知";
-				break;
-
-			default:
-				break;
-			}
-			return message;
+			return checkIdentity(mail);
 		} else {
-			return "登陆失败";
+			return FAIL;
 		}
 	}	
 
@@ -83,6 +43,7 @@ public class MailLoginService extends HttpServlet {
 	 * @author cylong
 	 * @version 2016年6月15日  下午7:19:31
 	 */
+	@WebMethod(exclude=true) // 或者把方法设置成 private
 	public boolean authenticate(String mail, String password) {
 		boolean isConnection = true;
 		
@@ -154,6 +115,11 @@ public class MailLoginService extends HttpServlet {
 			}
 		}
 		return true;
+	}
+	
+	public static void main(String[] args){
+		Endpoint.publish("http://localhost:8080/mailLogin", new MailLogin());
+		System.out.println("Publish Success!");
 	}
 
 }
