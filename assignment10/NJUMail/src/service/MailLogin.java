@@ -7,7 +7,6 @@ import javax.jws.WebService;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Store;
-import javax.servlet.http.HttpServlet;
 import javax.xml.ws.Endpoint;
 
 /**
@@ -16,14 +15,17 @@ import javax.xml.ws.Endpoint;
  * @version 2016年6月15日  下午7:13:34
  */
 @WebService
-public class MailLogin extends HttpServlet {
+public class MailLogin {
 
-	/** serialVersionUID */
-	private static final long serialVersionUID = -8499207644494251824L;
+	/** 登陆成功：老师 */
 	private static final String TEACHER = "Teacher";
+	/** 登陆成功：学生 */
 	private static final String STUDENT = "Student";
+	/** 登陆成功：研究生 */
 	private static final String GRA_STUDENT = "Graduate Student";
+	/** 登陆成功：身份未知 */
 	private static final String UNKNOWN = "Unknown";
+	/** 登陆失败 */
 	private static final String FAIL = "Fail";
 	
 	public String login(String mail, String password) {
@@ -33,7 +35,7 @@ public class MailLogin extends HttpServlet {
 		} else {
 			return FAIL;
 		}
-	}	
+	}
 
 	/**
 	 * 验证登陆
@@ -43,7 +45,7 @@ public class MailLogin extends HttpServlet {
 	 * @author cylong
 	 * @version 2016年6月15日  下午7:19:31
 	 */
-	@WebMethod(exclude=true) // 或者把方法设置成 private
+	@WebMethod(exclude=true) // 或者把方法设置成 private，在发布的时候隐藏此方法
 	public boolean authenticate(String mail, String password) {
 		boolean isConnection = true;
 		
@@ -118,8 +120,10 @@ public class MailLogin extends HttpServlet {
 	}
 	
 	public static void main(String[] args){
-		Endpoint.publish("http://localhost:8080/mailLogin", new MailLogin());
+		String address = "http://172.17.135.165:8080/mailLogin";
+		Endpoint.publish(address, new MailLogin());
 		System.out.println("Publish Success!");
+		System.out.println("Address:" + address);
 	}
 
 }
