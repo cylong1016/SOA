@@ -22,7 +22,7 @@ public class LoginServiceLocator extends org.apache.axis.client.Service implemen
     }
 
     // Use to get a proxy class for LoginPort
-    private java.lang.String LoginPort_address = "http://172.17.173.38:81/login";
+    private java.lang.String LoginPort_address = "http://localhost:81/login";
 
     public java.lang.String getLoginPortAddress() {
         return LoginPort_address;

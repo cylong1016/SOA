@@ -1,8 +1,5 @@
 eclipse.preferences.version=1
-encoding//src/loginByMailService/Exception.java=UTF-8
 encoding//src/loginByMailService/Login.java=UTF-8
 encoding//src/loginByMailService/LoginPortBindingStub.java=UTF-8
 encoding//src/loginByMailService/LoginService.java=UTF-8
 encoding//src/loginByMailService/LoginServiceLocator.java=UTF-8
-encoding//src/loginByMailService/MessagingException.java=UTF-8
-encoding//src/loginByMailService/StackTraceElement.java=UTF-8

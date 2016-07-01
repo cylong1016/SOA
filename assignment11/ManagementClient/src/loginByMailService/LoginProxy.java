@@ -44,7 +44,7 @@ public class LoginProxy implements loginByMailService.Login {
     return login;
   }
   
-  public int login(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException, loginByMailService.MessagingException{
+  public int login(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException{
     if (login == null)
       _initLoginProxy();
     return login.login(arg0, arg1);

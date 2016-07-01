@@ -1,54 +1,47 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<title>Login</title>
-		
-		<link href="/assignment7_client/css/bootstrap.min.css" rel="stylesheet">
-
-		<script src="/assignment7_client/js/jquery.min.js"></script>
-		<script src="/assignment7_client/js/bootstrap.min.js"></script>
-	</head>
-	<body style="margin-top:40px;">
-		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">SOA-Login</a>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>登陆</title>
+	
+	<link href="<%=request.getContextPath() + "/css/bootstrap.min.css" %>" rel="stylesheet">
+	<script src="<%=request.getContextPath() + "/js/jquery.min.js" %>"></script>
+	<script src="<%=request.getContextPath() + "/js/bootstrap.min.js" %>"></script>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">管理系统登陆</a>
+			</div>
+		</div>
+	</nav>
+	<div class="container" style="width: 100%; padding: 100px 20px;">
+		<form class="form-horizontal" 
+			method="post"
+			action="<%=request.getContextPath() + "/LoginServlet" %>" >
+			<div class="form-group">
+				<label class="col-sm-2 control-label">邮箱</label>
+				<div class="col-sm-3">
+					<input type='text' class="form-control" name='mail'>
 				</div>
 			</div>
-		</nav>
-		<div class="container">
-			<form class="form-horizontal" method="post" action="/assignment7_client/LoginServlet">
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Email</label>
-					<div class="col-sm-3">
-						<input type='text' class="form-control" name='email'>
-					</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">密码</label>
+				<div class="col-sm-3">
+					<input type='password' class="form-control" name='password'>
 				</div>
-				<div class="form-group">
-					<label class="col-sm-2 control-label">Password</label>
-					<div class="col-sm-3">
-						<input type='password' class="form-control" name='password'>
-					</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-1">
+					<button type="submit" class="btn btn-primary">登陆</button>
 				</div>
-				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-1">
-						<button type="submit" class="btn btn-primary">登陆</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</body>
+			</div>
+		</form>
+	</div>
+</body>
 </html>

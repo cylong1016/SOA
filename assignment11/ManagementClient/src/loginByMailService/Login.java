@@ -8,5 +8,5 @@
 package loginByMailService;
 
 public interface Login extends java.rmi.Remote {
-    public int login(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException, loginByMailService.MessagingException;
+    public int login(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException;
 }
