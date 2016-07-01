@@ -108,8 +108,9 @@ public class Login {
 	}
 
 	public static void main(String[] args) {
-		Endpoint.publish("http://localhost:81/login", new Login());
-//		Login login = new Login();
-//		login.login("131250181@smail.nju.edu.cn", "Cyl941016");
+		String address = "http://localhost:81/login";
+		Endpoint.publish(address, new Login());
+		System.out.println("Publish Success!");
+		System.out.println("Address:" + address);
 	}
 }
