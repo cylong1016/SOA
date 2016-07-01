@@ -41,16 +41,21 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String mail = request.getParameter("mail");
+		// 测试的老师账号，不需要输入密码。因为我们并没有老师的邮箱密码
+		String teacherMail = "beijia@nju.edu.cn";
 		String password = request.getParameter("password");
 		LoginProxy proxy = new LoginProxy();
 		String address = "/jsp/login.jsp";
 		try {
-			int result = proxy.login(mail, password);
-			if (result == 1) {
-				address = "/jsp/student.jsp";
-			}
-			if (result == 4) {
+			if(mail.equals(teacherMail)) {
 				address = "/jsp/teacher.jsp";
+			} else {
+				int result = proxy.login(mail, password);
+				if (result == 1) {
+					address = "/jsp/student.jsp";
+				} else if (result == 4) {
+					address = "/jsp/teacher.jsp";
+				}
 			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
