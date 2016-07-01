@@ -14,20 +14,15 @@ import javax.xml.ws.Endpoint;
  * @author cylong
  * @version 2016年6月15日  下午7:13:34
  */
-@WebService
-public class MailLogin {
+@WebService(
+		name = "MailLogin",
+		endpointInterface = "service.MailLoginPort"
+		)
+public class MailLogin implements MailLoginPort {
 
-	/** 登陆成功：老师 */
-	private static final String TEACHER = "Teacher";
-	/** 登陆成功：学生 */
-	private static final String STUDENT = "Student";
-	/** 登陆成功：研究生 */
-	private static final String GRA_STUDENT = "Graduate Student";
-	/** 登陆成功：身份未知 */
-	private static final String UNKNOWN = "Unknown";
-	/** 登陆失败 */
-	private static final String FAIL = "Fail";
-	
+	/**
+	 * @see service.MailLoginPort#login(java.lang.String, java.lang.String)
+	 */
 	public String login(String mail, String password) {
 		boolean success = authenticate(mail, password);
 		if(success) {
@@ -79,7 +74,11 @@ public class MailLogin {
 	/**
 	 * 验证登陆身份
 	 * @param mail
-	 * @return TEACHER、STUDENT、GRA_STUDENT、UNKNOWN
+	 * @return 	{@link service.MailLoginPort#TEACHER Teacher},
+	 * 			{@link service.MailLoginPort#STUDENT Student},
+	 * 			{@link service.MailLoginPort#GRA_STUDENT Graduate Student},
+	 * 			{@link service.MailLoginPort#UNKNOWN Unknown},
+	 * 			{@link service.MailLoginPort#FAIL Fail}
 	 * @author cylong
 	 * @version 2016年6月15日  下午7:18:40
 	 */
@@ -120,7 +119,10 @@ public class MailLogin {
 	}
 	
 	public static void main(String[] args){
-		String address = "http://172.17.135.165:8080/mailLogin";
+		// 别人可以访问的IP【我电脑的IP
+		// String address = "http://172.17.135.165:8080/mailLogin";
+		// 部署到本地，只有本机访问
+		String address = "http://localhost:8080/mailLogin";
 		Endpoint.publish(address, new MailLogin());
 		System.out.println("Publish Success!");
 		System.out.println("Address:" + address);
