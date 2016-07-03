@@ -52,7 +52,9 @@ public class LoginServlet extends HttpServlet {
 			} else {
 				int result = proxy.login(mail, password);
 				if (result == 1) {
-					address = "/jsp/student.jsp";
+					request.getSession().setAttribute("studentNo", mail.split("@")[0]);
+					request.setAttribute("oper", "0");
+					address = "/StudentServlet";
 				} else if (result == 4) {
 					address = "/jsp/teacher.jsp";
 				}

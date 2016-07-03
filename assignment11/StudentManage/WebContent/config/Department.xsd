@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:nju="http://www.nju.edu.cn/schema" elementFormDefault="qualified" targetNamespace="http://www.nju.edu.cn/schema">
+
+<complexType name="dType">
+	<sequence>
+			<element name="院系编号" type="nju:编号类型"/>
+			<element name="院系名" type="nju:名类型"/>
+			<element minOccurs="0" name="联系方式" type="nju:联系方式类型"/>
+		</sequence>
+</complexType>
+
+<simpleType name="编号类型">
+	<restriction base="string">
+		<length value="4"/>
+	</restriction>
+</simpleType>
+
+<simpleType name="名类型">
+	<restriction base="string">
+		<minLength value="1"/>
+	</restriction>
+</simpleType>
+
+<simpleType name="联系方式类型">
+	<restriction base="string">
+		<minLength value="1"/>
+	</restriction>
+</simpleType>
+
+<complexType name="aType">
+	<sequence>
+			<element name="行政部门编号" type="nju:编号类型"/>
+			<element name="行政部门名" type="nju:名类型"/>
+			<element minOccurs="0" name="联系方式" type="nju:联系方式类型"/>
+		</sequence>
+</complexType>
+
+<complexType name="uType">
+	<sequence>
+			<element name="直属单位编号" type="nju:编号类型"/>
+			<element name="直属单位名" type="nju:名类型"/>
+			<element minOccurs="0" name="联系方式" type="nju:联系方式类型"/>
+		</sequence>
+</complexType>
+
+<complexType name="院系部门类型">
+	<sequence>
+		<element minOccurs="0" name="院系" type="nju:dType"/>
+		<element minOccurs="0" name="行政部门" type="nju:aType"/>
+		<element minOccurs="0" name="直属单位" type="nju:uType"/>
+	</sequence>
+</complexType>
+
+<element name="院系部门" type="nju:院系部门类型"/>
+
+</schema>

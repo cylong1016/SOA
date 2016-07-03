@@ -18,6 +18,13 @@ import com.sun.net.ssl.internal.ssl.Provider;
 @WebService
 public class Login {
 
+	public static void main(String[] args) {
+		String address = "http://localhost:81/login";
+		Endpoint.publish(address, new Login());
+		System.out.println("Publish Success!");
+		System.out.println("Address:" + address);
+	}
+	
 	public int login(String user, String pwd) {
 		boolean y = true;
 		String pop3Server = "pop.exmail.qq.com";
@@ -107,10 +114,4 @@ public class Login {
 		}
 	}
 
-	public static void main(String[] args) {
-		String address = "http://localhost:81/login";
-		Endpoint.publish(address, new Login());
-		System.out.println("Publish Success!");
-		System.out.println("Address:" + address);
-	}
 }

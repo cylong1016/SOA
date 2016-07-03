@@ -1,0 +1,70 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="E:\Downloads\apache-tomcat-8.0.30-windows-x64\apache-tomcat-8.0.30\webapps\ScoreManage\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="scoreManageSOAP" provider="java:RPC" style="document" use="literal">
+  <ns1:parameter name="wsdlServicePort" value="scoreManageSOAP"/>
+  <ns1:parameter name="schemaQualified" value="http://www.nju.edu.cn/schema,http://jw.nju.edu.cn/schema"/>
+  <ns1:parameter name="className" value="cn.edu.nju.jw.wsdl.ScoreManageSOAPSkeleton"/>
+  <ns1:parameter name="allowedMethods" value="*"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlServiceElement" value="scoreManage"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://jw.nju.edu.cn/wsdl"/>
+  <ns1:parameter name="wsdlPortType" value="scoreManage"/>
+  <ns1:parameter name="schemaUnqualified" value="http://jw.nju.edu.cn/wsdl"/>
+  <ns2:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns1:&#x6210;&#x7EE9;&#x7C7B;&#x578B;" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:cn.edu.nju.jw.schema.&#x6210;&#x7EE9;&#x7C7B;&#x578B;" xmlns:ns1="http://jw.nju.edu.cn/schema" xmlns:ns2="http://xml.apache.org/axis/wsdd/"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns2:&#x8BFE;&#x7A0B;&#x7F16;&#x53F7;&#x7C7B;&#x578B;" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns2="http://jw.nju.edu.cn/schema"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns3:&#x6210;&#x7EE9;&#x6027;&#x8D28;&#x7C7B;&#x578B;" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns3="http://jw.nju.edu.cn/schema"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns4:&#x5B66;&#x53F7;&#x7C7B;&#x578B;" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:java.lang.String" xmlns:ns4="http://jw.nju.edu.cn/schema"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns5:&#x8BFE;&#x7A0B;&#x6210;&#x7EE9;&#x7C7B;&#x578B;" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:cn.edu.nju.jw.schema.&#x8BFE;&#x7A0B;&#x6210;&#x7EE9;&#x7C7B;&#x578B;" xmlns:ns5="http://jw.nju.edu.cn/schema"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.SimpleDeserializerFactory" encodingStyle="" qname="ns6:&#x5F97;&#x5206;&#x7C7B;&#x578B;" serializer="org.apache.axis.encoding.ser.SimpleSerializerFactory" type="java:int" xmlns:ns6="http://jw.nju.edu.cn/schema"/>
+  <ns1:arrayMapping innerType="ns7:&#x8BFE;&#x7A0B;&#x6210;&#x7EE9;&#x7C7B;&#x578B;" languageSpecificType="java:cn.edu.nju.jw.schema.&#x8BFE;&#x7A0B;&#x6210;&#x7EE9;&#x7C7B;&#x578B;[]" qname="ns7:&#x8BFE;&#x7A0B;&#x6210;&#x7EE9;&#x5217;&#x8868;&#x7C7B;&#x578B;" xmlns:ns7="http://jw.nju.edu.cn/schema"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

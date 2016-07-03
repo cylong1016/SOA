@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:stu="http://jw.nju.edu.cn/schema" xmlns:tns="http://jw.nju.edu.cn/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsoap="http://www.w3.org/ns/wsdl/soap" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="scoreManage" targetNamespace="http://jw.nju.edu.cn/wsdl">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://jw.nju.edu.cn/wsdl">
+			<!-- import 必要xsd -->
+			<xsd:import namespace="http://jw.nju.edu.cn/schema" schemaLocation="ScoreList.xsd"/>
+			<xsd:import namespace="http://jw.nju.edu.cn/schema" schemaLocation="Student.xsd"/>
+			<!-- 声明需要的变量 -->
+			<xsd:element name="InvalidDataFault" type="xsd:string"/>
+			<xsd:element name="scoreList" type="stu:课程成绩列表类型"/>
+			<xsd:element name="stuScore" type="stu:课程成绩类型"/>
+			<xsd:element name="IsSuccess" type="xsd:boolean" />
+			<xsd:element name="sid" type="stu:学号类型"/>
+		</xsd:schema>
+	</wsdl:types>
+
+	<!-- 为每一项请求声明message -->
+	<wsdl:message name="getScoreRequest">
+		<wsdl:part element="tns:sid" name="sid"/>
+	</wsdl:message>
+	<wsdl:message name="getScoreResponse">
+		<wsdl:part element="tns:scoreList" name="scoreList"/>
+	</wsdl:message>
+
+	<wsdl:message name="modifyScoreRequest">
+		<wsdl:part element="tns:stuScore" name="stuScore"/>
+	</wsdl:message>
+	<wsdl:message name="modifyScoreResponse">
+		<wsdl:part element="tns:IsSuccess" name="isSuccess"/>
+	</wsdl:message>
+
+	<wsdl:message name="addScoreRequest">
+		<wsdl:part element="tns:stuScore" name="stuScore"/>
+	</wsdl:message>
+	<wsdl:message name="addScoreResponse">
+		<wsdl:part element="tns:IsSuccess" name="isSuccess"/>
+	</wsdl:message>
+
+	<wsdl:message name="delScoreRequest">
+		<wsdl:part element="tns:stuScore" name="stuScore"/>
+	</wsdl:message>
+	<wsdl:message name="delScoreResponse">
+		<wsdl:part element="tns:IsSuccess" name="isSuccess"/>
+	</wsdl:message>
+
+	<!-- 声明错误信息 -->
+	<wsdl:message name="numNotExistFault">
+		<wsdl:documentation>查询时学号不存在</wsdl:documentation>
+		<wsdl:part element="tns:InvalidDataFault" name="invalidDataFault"/>
+	</wsdl:message>
+	<wsdl:message name="scoreTypeFault">
+		<wsdl:documentation>增删改成绩时成绩类型不正确</wsdl:documentation>
+		<wsdl:part element="tns:InvalidDataFault" name="invalidDataFault"/>
+	</wsdl:message>
+	<wsdl:message name="scoreFormatFault">
+		<wsdl:documentation>增删改成绩时分数格式不正确</wsdl:documentation>
+		<wsdl:part element="tns:InvalidDataFault" name="invalidDataFault"/>
+	</wsdl:message>
+	<wsdl:message name="courseIdFault">
+		<wsdl:documentation>增删改成绩时，选择的课程不存在</wsdl:documentation>
+		<wsdl:part element="tns:InvalidDataFault" name="invalidDataFault"/>
+	</wsdl:message>
+
+	<wsdl:portType name="scoreManage">
+		<!-- 声明请求的输入输出错误信息 -->
+		<wsdl:operation name="getScore">
+			<wsdl:input message="tns:getScoreRequest"/>
+			<wsdl:output message="tns:getScoreResponse"/>
+			<wsdl:fault message="tns:numNotExistFault" name="invalidData"/>
+		</wsdl:operation>
+		<wsdl:operation name="modifyScore">
+			<wsdl:input message="tns:modifyScoreRequest"/>
+			<wsdl:output message="tns:modifyScoreResponse"/>
+			<wsdl:fault message="tns:scoreTypeFault" name="scoreTypeFault"/>
+			<wsdl:fault message="tns:scoreFormatFault" name="scoreFormatFault"/>
+			<wsdl:fault message="tns:courseIdFault" name="courseIdFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="addScore">
+			<wsdl:input message="tns:addScoreRequest"/>
+			<wsdl:output message="tns:addScoreResponse"/>
+			<wsdl:fault message="tns:scoreTypeFault" name="scoreTypeFault"/>
+			<wsdl:fault message="tns:scoreFormatFault" name="scoreFormatFault"/>
+			<wsdl:fault message="tns:courseIdFault" name="courseIdFault"/>
+		</wsdl:operation>
+		<wsdl:operation name="delScore">
+			<wsdl:input message="tns:delScoreRequest"/>
+			<wsdl:output message="tns:delScoreResponse"/>
+			<wsdl:fault message="tns:scoreTypeFault" name="scoreTypeFault"/>
+			<wsdl:fault message="tns:scoreFormatFault" name="scoreFormatFault"/>
+			<wsdl:fault message="tns:courseIdFault" name="courseIdFault"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="scoreManageSOAP" type="tns:scoreManage">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+			<!-- 声明操作的网址 -->
+		<wsdl:operation name="getScore">
+			<soap:operation soapAction="http://example.com/getTerm"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+			<wsdl:operation name="modifyScore">
+			<soap:operation soapAction="http://example.com/getTerm"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+			<wsdl:operation name="addScore">
+			<soap:operation soapAction="http://example.com/getTerm"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+			<wsdl:operation name="delScore">
+			<soap:operation soapAction="http://example.com/getTerm"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="scoreManage">
+		<wsdl:port binding="tns:scoreManageSOAP" name="scoreManageSOAP">
+			<soap:address location="http://localhost:8080/Wsdl/services/scoreManageSOAP"/>
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

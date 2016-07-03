@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:nju="http://www.nju.edu.cn/schema" xmlns:tns="http://jw.nju.edu.cn/schema" elementFormDefault="qualified" targetNamespace="http://www.nju.edu.cn/schema">
+	
+	<import namespace="http://jw.nju.edu.cn/schema" schemaLocation="Student.xsd"/>
+	<include schemaLocation="Department.xsd"/>
+	
+	<element name="个人基本信息" type="nju:个人信息类型"/>
+	
+	<complexType name="个人信息类型">
+		<sequence>
+			<element name="姓名" type="nju:姓名类型"/>
+			<element name="性别" type="nju:性别类型"/>
+			<element name="密码" type="nju:密码类型"/>
+			<element name="手机号" type="nju:个人联系方式类型"/>
+			<element name="院系部门" type="nju:院系部门类型"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="updateInformation">
+		<sequence maxOccurs="1" minOccurs="0">
+			<element name="学号" type="tns:学号类型"/>
+			<element name="个人基本信息" type="nju:个人信息类型"/>
+		</sequence>
+	</complexType>
+
+
+	<simpleType name="姓名类型">
+		<restriction base="string">
+			<minLength value="1"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="性别类型">
+		<restriction base="string">
+			<enumeration value="男"/>
+			<enumeration value="女"/>
+		</restriction>
+	</simpleType>
+	
+	<simpleType name="密码类型">
+		<restriction base="string">
+			<minLength value="6"/>
+			<maxLength value="20"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="个人联系方式类型">
+		<restriction base="string">
+			<length value="11"/>
+		</restriction>
+	</simpleType>
+</schema>

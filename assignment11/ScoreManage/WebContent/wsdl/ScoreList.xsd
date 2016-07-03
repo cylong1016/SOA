@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:nju="http://www.nju.edu.cn/schema" xmlns:tns="http://jw.nju.edu.cn/schema" elementFormDefault="qualified" targetNamespace="http://jw.nju.edu.cn/schema">
+
+	<include schemaLocation="Student.xsd"/>
+	<include schemaLocation="Course.xsd"/>
+	
+
+	<complexType name="课程成绩列表类型">
+		<sequence>
+			<element maxOccurs="unbounded" minOccurs="0" name="课程成绩" type="tns:课程成绩类型"/>
+		</sequence>
+	</complexType>
+
+	<element name="课程成绩列表" type="tns:课程成绩列表类型"/>
+
+
+	<complexType name="课程成绩类型">
+		<sequence maxOccurs="unbounded" minOccurs="0">
+			<element name="成绩" type="tns:成绩类型">
+			</element>
+		</sequence>
+		<attribute name="课程编号" type="tns:课程编号类型"/>
+		<attribute name="成绩性质" type="tns:成绩性质类型"/>
+	</complexType>
+
+    <complexType name="成绩类型">
+    			<sequence>
+					<element name="学号" type="tns:学号类型"/>
+					<element name="得分" type="tns:得分类型"/>
+				</sequence>
+    </complexType>
+
+    
+</schema>
